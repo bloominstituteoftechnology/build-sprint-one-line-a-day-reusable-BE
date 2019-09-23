@@ -25,3 +25,11 @@ Takes an object including:
 }`
 
 Returns JWT
+
+
+
+### Get posts by user ID
+
+GET to https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts
+
+Returns an array of post objects
