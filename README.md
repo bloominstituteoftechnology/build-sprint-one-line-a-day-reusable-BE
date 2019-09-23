@@ -33,3 +33,6 @@ Returns JWT
 GET to https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts
 
 Returns an array of post objects
+
+**Testing Notice**
+Database is seeded with 3 users and 1 sample post for each of them. Use id 1,2 or 3 in URL
