@@ -36,3 +36,17 @@ Returns an array of post objects
 
 **Testing Notice**
 Database is seeded with 3 users and 1 sample post for each of them. Use id 1,2 or 3 in URL
+
+
+
+### Create a new post
+
+POST to https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts
+
+Takes an object including:
+`{
+    title: "title",
+    contents: "contents"
+}`
+
+Returns id of post

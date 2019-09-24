@@ -48,13 +48,19 @@ router.get('/:id/posts', (req, res) => {
 
 router.post('/:id/posts', (req, res) => {
   const postData = req.body;
+  const title = postData.title;
+  const contents = postData.contents;
+  const { id } = req.params;
+  const post = {title: title, contents: contents, user_id:id}
+  console.log(id)
 
-  Posts.add(postData)
+  Posts.add(post)
   .then(post => {
     res.status(201).json(post);
   })
   .catch (err => {
     res.status(500).json({ message: 'Failed to create new post' });
+    console.log(err)
   });
 });
 
