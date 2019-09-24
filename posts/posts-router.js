@@ -4,6 +4,8 @@ const Posts = require('./posts-model.js');
 
 const router = express.Router();
 
+const restricted = require('../auth/restricted-middleware.js');
+
 // router.get('/', (req, res) => {
 //   Posts.find()
 //   .then(posts => {
@@ -30,7 +32,7 @@ const router = express.Router();
 //   });
 // });
 
-router.get('/:id/posts', (req, res) => {
+router.get('/:id/posts', restricted, (req, res) => {
   const { id } = req.params;
 
   Posts.findPosts(id)
@@ -46,7 +48,7 @@ router.get('/:id/posts', (req, res) => {
   });
 });
 
-router.post('/:id/posts', (req, res) => {
+router.post('/:id/posts', restricted, (req, res) => {
   const postData = req.body;
   const title = postData.title;
   const contents = postData.contents;
