@@ -15,6 +15,7 @@ router.post('/register', (req, res) => {
       const token = generateToken(saved)
       res.status(201).json({
         user: saved,
+        // userId: user.id,
         token});
     })
     .catch(error => {
@@ -30,9 +31,10 @@ router.post('/login', (req, res) => {
     .then(user => {
       if (user && bcrypt.compareSync(password, user.password)) {
         const token = generateToken(user)
-        console.log('token:',token)
+        console.log(user)
         res.status(200).json({
           message: `Welcome ${user.username}!`,
+          user: user,
           token
         });
       } else {
