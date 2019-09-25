@@ -16,7 +16,7 @@ function find() {
 }
 
 function findById(id) {
-    return db('users')
+    return db('posts')
         .where({ id })
         .first()
 }
@@ -39,7 +39,7 @@ function update(post, id) {
 }
 
 function remove(id) {
-    return db('schemes')
+    return db('posts')
         .where({ id })
         .del()
 }

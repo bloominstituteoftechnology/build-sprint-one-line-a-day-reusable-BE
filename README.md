@@ -43,6 +43,8 @@ Database is seeded with 3 users and 1 sample post for each of them. Use id 1,2 o
 
 POST to https://bw-one-line-a-day.herokuapp.com/api/users/:id/posts
 
+Where :id in URL is user id
+
 Takes an object including:
 `{
     title: "title",
@@ -50,3 +52,29 @@ Takes an object including:
 }`
 
 Returns id of post
+
+
+
+### Update a post
+
+PUT to https://bw-one-line-a-day.herokuapp.com/api/users/posts/:id
+
+Where :id in URL is post id
+
+Takes an object including:
+`{
+    title: "title UPDATED",
+    contents: "contents UPDATED"
+}`
+
+Returns 1 for successful update
+
+
+
+### Delete a post
+
+DELETE to https://bw-one-line-a-day.herokuapp.com/api/users/posts/:id
+
+Where :id in URL is post id
+
+Returns "removed: 1" for successful delete
