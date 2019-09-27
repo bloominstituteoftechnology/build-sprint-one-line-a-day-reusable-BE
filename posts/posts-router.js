@@ -6,7 +6,7 @@ const router = express.Router();
 
 const restricted = require('../auth/restricted-middleware.js');
 
-router.get('/:id/posts', (req, res) => {
+router.get('/:id/posts', restricted, (req, res) => {
   const { id } = req.params;
 
   Posts.findPosts(id)
@@ -22,7 +22,7 @@ router.get('/:id/posts', (req, res) => {
   });
 });
 
-router.post('/:id/posts', (req, res) => {
+router.post('/:id/posts', restricted, (req, res) => {
   const postData = req.body;
   const title = postData.title;
   const contents = postData.contents;
@@ -40,7 +40,7 @@ router.post('/:id/posts', (req, res) => {
   });
 });
 
-router.put('/posts/:id', (req, res) => {
+router.put('/posts/:id', restricted, (req, res) => {
   const { id } = req.params;
   const changes = req.body;
 
@@ -60,7 +60,7 @@ router.put('/posts/:id', (req, res) => {
   });
 });
 
-router.delete('/posts/:id', (req, res) => {
+router.delete('/posts/:id', restricted, (req, res) => {
   const { id } = req.params;
 
   Posts.remove(id)
